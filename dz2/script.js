@@ -9,10 +9,10 @@
 // ================
 
 // 1. Спросить у пользователя 1 число
-let operandA = getOperand('Put OperandA?');
+let operandA = getNumber('Put OperandA?');
 
 // 2. Спросить у пользователя 2 число
-let operandB = getOperand('Put OperandB?');
+let operandB = getNumber('Put OperandB?');
 
 // 3. Спросить у пользователя действие + - / *
 let action = getAction();
@@ -24,17 +24,17 @@ let result = calculate(operandA, operandB, action);
 showResult(operandA, operandB, action, result);
 
 // ==========
-function getOperand(title) {
+function getNumber(title) {
     let operand = prompt(title);
 
-    while (isOperandInvalid(operand)) {
+    while (isNumberInvalid(operand)) {
         operand = prompt(title);
     }
 
     return +operand;
 }
 
-function isOperandInvalid(operand) {
+function isNumberInvalid(operand) {
     return operand === null || operand.trim() === '' || isNaN(operand);
 }
 
