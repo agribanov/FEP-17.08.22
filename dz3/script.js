@@ -6,7 +6,7 @@
 // Сумма четных: 30
 // Сумма нечетных: 25
 
-const maxNumber = getNumber();
+const maxNumber = getOperand();
 const { odd, even } = getSums(maxNumber);
 
 // const oddSum = getOddSum(maxNumber);
@@ -14,17 +14,17 @@ const { odd, even } = getSums(maxNumber);
 
 showResult(odd, even);
 
-function getNumber() {
+function getOperand() {
     let num = prompt('Put number');
 
-    while (isNumberInvalid(num)) {
+    while (isOperandInvalid(num)) {
         num = prompt('Put number. Try again');
     }
 
     return +num;
 }
 
-function isNumberInvalid(val) {
+function isOperandInvalid(val) {
     return val === null || val.trim() === '' || isNaN(val) || val <= 0;
 }
 
