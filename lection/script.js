@@ -1,17 +1,48 @@
-let students = [
-    { id: 1, name: 'Alex', marks: [10, 9, 10] }, // 29 / 3 = 9.9
-    { id: 2, name: 'Bob', marks: [10, 9, 10] },
-    { id: 3, name: 'John', marks: [10, 9, 10] },
-];
+// Замыкания
 
-// const index = students.findIndex((item) => item.id === 2);
+// Лексическое окружение
 
-// if (index !== null) {
-//     students.splice(index, 1);
+// const msg = 'Hello';
+
+// function sayHi(name) {
+//     function log() {
+//         console.log(msg + name);
+//     }
+
+//     return log;
 // }
 
-// students = students.filter((item) => item.id !== 2);
+// const helloAlex = sayHi('Alex');
+// const helloBob = sayHi('Bob');
 
-function getStudentAverageMark(student) {}
+// hello = null;
+// sayHi('Bob');
 
-function getGroupAverageMark(students) {}
+// function sum(a) {
+//     return function (b) {
+//         return a + b;
+//     };
+// }
+
+// const add10 = sum(10);
+// const add100 = sum(100);
+
+// function createCounter() {
+//     let counts = 0;
+
+//     return {
+//         count: () => ++counts,
+//         reset: () => (counts = 0),
+//     };
+// }
+
+function createCalculator(a) {}
+
+const calc = createCalculator(100);
+
+calc.add(10); // 110
+calc.div(10); // 110 / 10 = 11
+calc.mult(5); // 55
+calc.sub(100); // -45
+calc.set(50); // 50
+calc.add(10); // 60
