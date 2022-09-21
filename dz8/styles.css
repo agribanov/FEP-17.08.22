@@ -1,12 +1,12 @@
-/* body {
+body {
     background-color: red;
-  } */
+  }
 
 .highlighted {
   background-color: green;
   color: blue;
 }
 
-.invalid-input {
-  background-color: red
+li {
+  visibility: hidden;
 }

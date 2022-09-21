@@ -9,27 +9,24 @@
         <script src="script.js" defer></script>
     </head>
     <body class="oranges-cases-third">
-        <!-- jkagdf -->
-        <ul id="list">
-            <li class="list-item red">
-                <span>Hello</span>
-            </li>
-            <li class="list-item">2</li>
-            <li class="list-item"></li>
-            <li class="red">red</li>
-        </ul>
-        <div>
-            <input type="text" />
-            <select>
-                <option value="+">+</option>
-                <option value="-">-</option>
-                <option value="/">/</option>
-                <option value="*">*</option>
-            </select>
-            <input type="text" />
-            <button>Calculate</button>
-        </div>
-        <div id="result">2 / 3 = 0,66666</div>
-        Hello!
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Phone</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="contactsList"></tbody>
+            <tfoot>
+                <tr>
+                    <td><input id="name" placeholder="Contact name" /></td>
+                    <td><input id="surname" placeholder="Contact surname" /></td>
+                    <td><input id="phone" placeholder="Contact phone" /></td>
+                    <td><button id="addContactBtn">Add</button></td>
+                </tr>
+            </tfoot>
+        </table>        
     </body>
 </html>
