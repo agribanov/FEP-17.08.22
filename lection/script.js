@@ -1,86 +1,28 @@
-const contactsListEl = document.querySelector('#contactsList');
-const nameEl = document.querySelector('#name');
-const surnameEl = document.querySelector('#surname');
-const phoneEl = document.querySelector('#phone');
-const addBtnEl = document.querySelector('#addContactBtn');
+// 'use strict';
 
-addBtnEl.addEventListener('click', onAddContactBtnClick)
+// function Person(name) {
+//     this.name = name;
 
-function onAddContactBtnClick(){
+//     this.say = function () {
+//         console.log('hello', this.name);
+//     };
 
-    if (!validateValues()){
-        return;
-    }
+//     this.sleep = function (duration) {
+//         console.log(`${this.name} is sleeping for ${duration} hours`);
+//     };
+// }
 
-    const newContact = getValues();
+// const alex = new Person('Alex');
+// const bob = new Person('Bob');
+// const john = new Person('John');
 
-    addContact(newContact);
-    resetForm();
-}
-
-function getValues(){
-    return {
-        name: nameEl.value,
-        surname: surnameEl.value,
-        phone: phoneEl.value,
-    }
-}
-
-function addContact(contact){
-    const rowEl = generateContactElement(contact)
-
-    contactsListEl.append(rowEl)
-}
-
-function generateContactElement({name, surname, phone}){
-    const trEl = document.createElement('tr');
-
-    trEl.append(createCell(name))
-    trEl.append(createCell(surname))
-    trEl.append(createCell(phone))
-    trEl.append(createCell(''));
-
-    return trEl;
-}
-
-function createCell(value){
-    const tdEl = document.createElement('td');
-
-    tdEl.textContent = value;
-
-    return tdEl;
-}
-
-function resetForm(){
-    nameEl.value = '';
-    surnameEl.value = '';
-    phoneEl.value = '';
-}
-
-function validateValues(){
-    resetValidation();
-    
-    if (nameEl.value === '') {
-        nameEl.classList.add('invalid-input');
-        return false
-    };
-
-    if (surnameEl.value === '') {
-        surnameEl.classList.add('invalid-input');
-        return false
-    };
-
-    if (phoneEl.value === '') {
-        phoneEl.classList.add('invalid-input');
-        return false
-    };
-
-    return true
-}
-
-function resetValidation(){
-    nameEl.classList.remove('invalid-input');
-    surnameEl.classList.remove('invalid-input');
-    phoneEl.classList.remove('invalid-input');
-
-}
+// const calc = new Calculator(100);
+// calc.result // 100
+// calc.add(10); // 110
+// calc.result // 110
+// calc.div(10); // 110 / 10 = 11
+// calc.mult(5); // 55
+// calc.sub(100); // -45
+// calc.set(50); // 50
+// calc.add(10); // 60
+// calc.result // 60
