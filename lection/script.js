@@ -1,28 +1,48 @@
-// 'use strict';
+// OOP
 
-// function Person(name) {
-//     this.name = name;
+// 1. Наследование
+// 2. Инкапсуляция
+// 3. Полиморфизм
 
-//     this.say = function () {
-//         console.log('hello', this.name);
-//     };
+// 4. Абстракция
 
-//     this.sleep = function (duration) {
-//         console.log(`${this.name} is sleeping for ${duration} hours`);
-//     };
-// }
+function Person(name) {
+    this._name = name;
+}
 
-// const alex = new Person('Alex');
-// const bob = new Person('Bob');
-// const john = new Person('John');
+Person.prototype.getName = function () {
+    return Person.formatName(this._name);
+};
 
-// const calc = new Calculator(100);
-// calc.result // 100
-// calc.add(10); // 110
-// calc.result // 110
-// calc.div(10); // 110 / 10 = 11
-// calc.mult(5); // 55
-// calc.sub(100); // -45
-// calc.set(50); // 50
-// calc.add(10); // 60
-// calc.result // 60
+Person.prototype.setName = function (newName) {
+    if (newName !== '') {
+        this._name = newName;
+    }
+};
+
+const alex = new Person('Alex');
+
+Person.formatName = function (name) {
+    return Person.PREFIX + name;
+};
+
+Person.PREFIX = 'Mr. ';
+
+SIZE_SMALL = { price: 50, callories: 20 };
+SIZE_BIG = { price: 100, callories: 50 };
+
+TOPPING_MAYO = { price: 20, callories: 5000 };
+TOPPING_KETCHUP = { price: 30, callories: 500 };
+
+const hum = SIZE_SMALL;
+
+hum.addTopping(TOPPING_MAYO);
+hum.addTopping(TOPPING_KETCHUP);
+hum.addTopping(TOPPING_MAYO);
+hum.addTopping(TOPPING_MAYO);
+
+hum.getPrice(); //
+hum.getCallories(); //
+hum.addTopping(TOPPING_KETCHUP);
+hum.getPrice(); //
+hum.getCallories(); //
