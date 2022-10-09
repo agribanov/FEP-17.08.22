@@ -1,0 +1,26 @@
+.tabset-bodies .tabset-body {
+    display: none;
+}
+
+.tabset-bodies {
+    border: 1px solid grey;
+}
+.tabset-titles {
+    height: 30px;
+}
+
+.tabset-titles .tabset-title {
+    float: left;
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid grey;
+    cursor: pointer;
+}
+
+.tabset-title.tabset-active{
+    background-color: grey;
+}
+
+.tabset-body.tabset-active{
+    display: block;
+}

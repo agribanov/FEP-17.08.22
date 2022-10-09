@@ -1,48 +1,80 @@
-// OOP
+// // class Hamburger {
+// //     static SIZE_SMALL = { title: 'SMALL SIZE', price: 50, callories: 20 };
+// //     static SIZE_BIG = { title: 'BIG SIZE', price: 100, callories: 50 };
 
-// 1. Наследование
-// 2. Инкапсуляция
-// 3. Полиморфизм
+// //     static TOPPING_MAYO = { title: 'Mayo', price: 20, callories: 5000 };
+// //     static TOPPING_KETCHUP = { title: 'Ketchup', price: 30, callories: 500 };
 
-// 4. Абстракция
+// //     #toppings = [];
+// //     #size = null;
 
-function Person(name) {
-    this._name = name;
-}
+// //     get price() {
+// //         return this.#toppings.reduce(
+// //             (acc, { price }) => (acc += price),
+// //             this.#size.price
+// //         );
+// //     }
 
-Person.prototype.getName = function () {
-    return Person.formatName(this._name);
-};
+// //     get callories() {
+// //         return this.#toppings.reduce(
+// //             (acc, { callories }) => (acc += callories),
+// //             this.#size.callories
+// //         );
+// //     }
 
-Person.prototype.setName = function (newName) {
-    if (newName !== '') {
-        this._name = newName;
-    }
-};
+// //     constructor(size) {
+// //         console.log('Hamburger constructor');
+// //         this.#size = size;
+// //     }
 
-const alex = new Person('Alex');
+// //     addTopping(topping) {
+// //         this.#toppings.push(topping);
+// //     }
+// // }
 
-Person.formatName = function (name) {
-    return Person.PREFIX + name;
-};
+// // class Superburger extends Hamburger {
+// //     isSuper = true;
 
-Person.PREFIX = 'Mr. ';
+// //     constructor(size, topping) {
+// //         super(size);
 
-SIZE_SMALL = { price: 50, callories: 20 };
-SIZE_BIG = { price: 100, callories: 50 };
+// //         this.addTopping(topping);
+// //         console.log('Superburger constructor');
+// //     }
 
-TOPPING_MAYO = { price: 20, callories: 5000 };
-TOPPING_KETCHUP = { price: 30, callories: 500 };
+// //     get price() {
+// //         return super.price * 1.1;
+// //     }
+// // }
 
-const hum = SIZE_SMALL;
+// // const burger = new Superburger(Hamburger.SIZE_BIG, Hamburger.TOPPING_KETCHUP);
 
-hum.addTopping(TOPPING_MAYO);
-hum.addTopping(TOPPING_KETCHUP);
-hum.addTopping(TOPPING_MAYO);
-hum.addTopping(TOPPING_MAYO);
+// class Person {
+//     #firstName = '';
+//     #surname = '';
 
-hum.getPrice(); //
-hum.getCallories(); //
-hum.addTopping(TOPPING_KETCHUP);
-hum.getPrice(); //
-hum.getCallories(); //
+//     get name() {
+//         return this.#firstName + ' ' + this.#surname;
+//     }
+
+//     set name(newName) {
+//         // 'Bob Johns'
+//         const [firstName, surname] = newName.split(' ');
+
+//         if (!surname) {
+//             return;
+//         }
+//         this.#firstName = firstName;
+//         this.#surname = surname;
+//     }
+
+//     constructor(firstName, surname) {
+//         this.#firstName = firstName;
+//         this.#surname = surname;
+//     }
+// }
+
+// const alex = new Person('Alex', 'Smith');
+
+const tabset = new Tabset(document.querySelector('.tabset-container'));
+const accordion = new Accordion(document.querySelector('.accordion-container'));
