@@ -1,0 +1,20 @@
+.Super-Accordion-title {
+    border: 1px solid grey;
+    padding: 5px 10px;
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.Super-Accordion-body {
+    border: 1px solid grey;
+    padding: 5px 10px;
+    display: none;
+}
+
+.Super-Accordion-item.Super-Accordion-active .Super-Accordion-title {
+    background-color: darkgray;
+}
+
+.Super-Accordion-item.Super-Accordion-active .Super-Accordion-body {
+    display: block;
+}
