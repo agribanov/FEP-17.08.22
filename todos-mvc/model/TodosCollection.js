@@ -28,4 +28,12 @@ class TodosCollection {
             this.list = this.list.filter((item) => item.id !== id);
         });
     }
+
+    createTodo(data) {
+        data.isDone = false;
+
+        return this.#api
+            .create(data)
+            .then((newTodo) => (this.list = [...this.list, newTodo]));
+    }
 }
