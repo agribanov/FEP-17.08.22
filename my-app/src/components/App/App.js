@@ -1,46 +1,60 @@
 import './App.css';
 
-import react, { Component } from 'react';
+import { Component } from 'react';
+import Form from '../Form/Form';
+import List from '../List/List';
 
 class App extends Component {
     state = {
-        counts: 0,
-        name: 'Alex',
-        showGreeting: false,
+        todos: [
+            { id: 1, title: 'Item 10', isDone: false },
+            { id: 2, title: 'Item 20', isDone: true },
+            { id: 3, title: 'Item 30', isDone: false },
+        ],
     };
 
-    onClick = () => {
+    toggleTodo = (id) => {
         this.setState({
-            counts: this.state.counts + 1,
+            todos: this.state.todos.map((item) =>
+                item.id !== id
+                    ? item
+                    : {
+                          ...item,
+                          isDone: !item.isDone,
+                      }
+            ),
         });
     };
 
-    onInputChange = (e) => {
+    deleteTodo = (id) => {
         this.setState({
-            name: e.target.value,
+            todos: this.state.todos.filter((item) => item.id !== id),
         });
     };
 
-    onToggle = () => {
+    createTodo = (newTodo) => {
         this.setState({
-            showGreeting: !this.state.showGreeting,
+            todos: [
+                ...this.state.todos,
+                {
+                    ...newTodo,
+                    id: Date.now(),
+                    isDone: false,
+                },
+            ],
         });
     };
 
     render() {
         return (
-            <div>
-                {this.state.showGreeting ? 'Hello, ' + this.state.name : null}
-                <br />
-                {this.state.counts}
-                <br />
-                <button onClick={this.onClick}>Click me</button>
-                <br />
-                <input value={this.state.name} onChange={this.onInputChange} />
-                <select> </select>
-                <input value={this.state.name} onChange={this.onInputChange} />
-                <button onClick={this.onToggle}>Toggle Greeting</button>
-            </div>
+            <>
+                <List
+                    todos={this.state.todos}
+                    onToggle={this.toggleTodo}
+                    onDelete={this.deleteTodo}
+                />
+                <Form onSave={this.createTodo} />
+            </>
         );
     }
 }
