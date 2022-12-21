@@ -29,3 +29,8 @@ export function createItem(newItem) {
         },
     }).then((res) => res.json());
 }
+
+axios.post('/user/12345', {
+    firstName: 'Fred',
+    lastName: 'Flintstone',
+});

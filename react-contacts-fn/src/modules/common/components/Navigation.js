@@ -18,6 +18,12 @@ function Navigation({ page, navigate }) {
                 currentPath={page}
                 navigate={navigate}
             />
+            <NavigationLink
+                path="gallery"
+                label="Gallery"
+                currentPath={page}
+                navigate={navigate}
+            />
         </div>
     );
 }
