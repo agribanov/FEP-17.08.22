@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import api from '../../../api';
+
 const EMPTY_USER = {
     name: '',
     surname: '',
@@ -17,10 +18,6 @@ export default function useUser(id) {
             api.get('users/' + id).then(({ data }) => setUser(data));
         }
     }, [id]);
-
-    function changeUser(diff) {
-        setUser({ ...user, ...diff });
-    }
 
     function saveUser(user) {
         if (user.id) {
@@ -40,7 +37,6 @@ export default function useUser(id) {
 
     return {
         user,
-        changeUser,
         saveUser,
     };
 }
