@@ -3,4 +3,11 @@ import palette from './palette';
 
 export default createTheme({
     palette,
+    components: {
+        MuiTextField: {
+            defaultProps: {
+                variant: 'filled',
+            },
+        },
+    },
 });

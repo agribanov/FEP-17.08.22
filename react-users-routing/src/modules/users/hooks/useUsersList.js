@@ -4,13 +4,17 @@ import api from '../../../api';
 
 export default function useUsersList() {
     const [list, setList] = useState([]);
+    const [isloading, setIsloading] = useState(false);
 
     useEffect(() => {
         fetchUsers();
     }, []);
 
     function fetchUsers() {
-        api.get('users').then(({ data }) => setList(data));
+        setIsloading(true);
+        api.get('users')
+            .then(({ data }) => setList(data))
+            .finally(() => setIsloading(false));
     }
 
     function deleteUser(id) {
@@ -20,5 +24,5 @@ export default function useUsersList() {
         });
     }
 
-    return { list, deleteUser, fetchUsers };
+    return { list, isloading, deleteUser, fetchUsers };
 }

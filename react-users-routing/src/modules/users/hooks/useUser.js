@@ -10,12 +10,16 @@ const EMPTY_USER = {
 
 export default function useUser(id) {
     const [user, setUser] = useState(EMPTY_USER);
+    const [isloading, setIsloading] = useState(false);
 
     useEffect(() => {
         if (isNaN(id)) {
             setUser(EMPTY_USER);
         } else {
-            api.get('users/' + id).then(({ data }) => setUser(data));
+            setIsloading(true);
+            api.get('users/' + id)
+                .then(({ data }) => setUser(data))
+                .finally(() => setIsloading(false));
         }
     }, [id]);
 
@@ -37,6 +41,7 @@ export default function useUser(id) {
 
     return {
         user,
+        isloading,
         saveUser,
     };
 }
