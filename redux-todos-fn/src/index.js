@@ -7,7 +7,10 @@ import App from './components/App/App';
 import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { getTodos } from './store/actions/todos';
 import store from './store';
+
+store.dispatch(getTodos());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

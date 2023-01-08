@@ -1,12 +1,18 @@
 import React from 'react';
+import { createTodo } from '../../store/actions/todos';
+import { useDispatch } from 'react-redux';
 
-function Form({ onSave }) {
+function Form() {
+    const dispatch = useDispatch();
+
     function onFormSubmit(e) {
         e.preventDefault();
 
-        onSave({
-            title: e.target.title.value,
-        });
+        dispatch(
+            createTodo({
+                title: e.target.title.value,
+            })
+        );
 
         e.target.reset();
     }
