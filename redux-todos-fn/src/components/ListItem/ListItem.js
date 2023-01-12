@@ -1,9 +1,12 @@
 import './ListItem.css';
 
-import { deleteTodo, toggleTodo } from '../../store/actions/todos';
+import { deleteTodo, toggleTodo } from '../../toolkitStore/slices/todosSlice';
 
 import React from 'react';
 import { useDispatch } from 'react-redux';
+
+// import { deleteTodo, toggleTodo } from '../../store/actions/todos';
+
 
 function ListItem({ todo }) {
     const dispatch = useDispatch();

@@ -1,6 +1,7 @@
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
 
 import { createLogger } from 'redux-logger';
+import { filtersReducer } from './reducers/filtersReducer';
 import thunk from 'redux-thunk';
 import todosReducer from './reducers/todosReducer';
 
@@ -19,6 +20,11 @@ const middlewares = applyMiddleware(
     })
 );
 
-const store = createStore(todosReducer, middlewares);
+const rootReducer = combineReducers({
+    filters: filtersReducer,
+    todos: todosReducer,
+});
+
+const store = createStore(rootReducer, middlewares);
 
 export default store;

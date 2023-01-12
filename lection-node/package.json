@@ -13,6 +13,7 @@
         "cowsay": "^1.5.0"
     },
     "dependencies": {
+        "immer": "^9.0.17",
         "redux": "^4.2.0"
     }
 }

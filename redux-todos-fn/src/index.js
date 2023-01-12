@@ -7,8 +7,9 @@ import App from './components/App/App';
 import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { getTodos } from './store/actions/todos';
-import store from './store';
+import { getTodos } from './toolkitStore/slices/todosSlice';
+// import store from './store';
+import store from './toolkitStore';
 
 store.dispatch(getTodos());
 

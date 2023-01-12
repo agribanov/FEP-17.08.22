@@ -7,15 +7,8 @@ import {
 } from '../actions/todos';
 
 const INITIAL_STATE = {
-    filter: {},
-    name: 'Alex',
     isLoading: false,
-    list: [
-        { id: 1, title: 'Item 1', isDone: false },
-        { id: 2, title: 'Item 2', isDone: true },
-        { id: 3, title: 'Item 3', isDone: true },
-        { id: 4, title: 'Item 4', isDone: false },
-    ],
+    list: [],
 };
 
 //{ type: DELETE_TODO, payload }
@@ -29,15 +22,6 @@ export default function todosReducer(state = INITIAL_STATE, { type, payload }) {
                 ...state,
                 list: state.list.filter((item) => payload !== item.id),
             };
-        // case TOGGLE_TODO:
-        //     return {
-        //         ...state,
-        //         list: state.list.map((item) =>
-        //             payload !== item.id
-        //                 ? item
-        //                 : { ...item, isDone: !item.isDone }
-        //         ),
-        //     };
         case UPDATE_TODO:
             return {
                 ...state,

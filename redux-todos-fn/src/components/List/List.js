@@ -2,7 +2,7 @@ import './List.css';
 
 import ListItem from '../ListItem/ListItem';
 import React from 'react';
-import { selectList } from '../../store/selectors/todos';
+import { selectList } from '../../toolkitStore/slices/todosSlice';
 import { useSelector } from 'react-redux';
 
 function List() {
