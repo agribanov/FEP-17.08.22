@@ -10,6 +10,7 @@ function Landing() {
             {JSON.stringify(user)}
             Landing
             <NavLink to="/auth">Login</NavLink>
+            <NavLink to="/auth/logout">Logout</NavLink>
             <NavLink to="/admin">Admin Panel</NavLink>
         </div>
     );
