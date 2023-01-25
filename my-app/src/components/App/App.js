@@ -1,62 +1,39 @@
-import './App.css';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
-import { Component } from 'react';
-import Form from '../Form/Form';
-import List from '../List/List';
+function progression(value) {
+    console.log('function fired');
+    if (value === 0) return 0;
 
-class App extends Component {
-    state = {
-        todos: [
-            { id: 1, title: 'Item 10', isDone: false },
-            { id: 2, title: 'Item 20', isDone: true },
-            { id: 3, title: 'Item 30', isDone: false },
-        ],
-    };
+    return value + progression(value - 1);
+}
 
-    toggleTodo = (id) => {
-        this.setState({
-            todos: this.state.todos.map((item) =>
-                item.id !== id
-                    ? item
-                    : {
-                          ...item,
-                          isDone: !item.isDone,
-                      }
-            ),
-        });
-    };
+function getStoredValue() {
+    const value = localStorage.getItem('first'); // null
 
-    deleteTodo = (id) => {
-        this.setState({
-            todos: this.state.todos.filter((item) => item.id !== id),
-        });
-    };
+    return value ? value : 0;
+}
 
-    createTodo = (newTodo) => {
-        this.setState({
-            todos: [
-                ...this.state.todos,
-                {
-                    ...newTodo,
-                    id: Date.now(),
-                    isDone: false,
-                },
-            ],
-        });
-    };
+function App() {
+    const [first, setFirst] = useState(getStoredValue());
+    const [second, setSecond] = useState(0);
 
-    render() {
-        return (
-            <>
-                <List
-                    todos={this.state.todos}
-                    onToggle={this.toggleTodo}
-                    onDelete={this.deleteTodo}
-                />
-                <Form onSave={this.createTodo} />
-            </>
-        );
-    }
+    useEffect(() => {
+        localStorage.setItem('first', first);
+    }, [first]);
+
+    const result = useMemo(() => progression(first), [first, progression]);
+
+    return (
+        <div>
+            Result: {result}
+            <button onClick={() => setFirst(first + 1)}>
+                Add First ({first})
+            </button>
+            <button onClick={() => setSecond(second + 1)}>
+                Add second ({second})
+            </button>
+        </div>
+    );
 }
 
 export default App;

@@ -1,4 +1,3 @@
-import React from 'react';
 import useCategory from '../../../common/categories/hooks/useCategory';
 
 function CategoryName({ id }) {

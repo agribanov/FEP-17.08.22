@@ -1,8 +1,4 @@
-import AuthProvider, {
-    AuthContext,
-} from './modules/common/auth/providers/AuthProvider';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
 
 import AdminApp from './modules/admin/AdminApp';
 import Auth from './modules/common/auth/pages/Auth';
@@ -18,6 +14,7 @@ import NewCategory from './modules/admin/categories/pages/NewCategory';
 import ProductForm from './modules/admin/products/pages/ProductForm';
 import Products from './modules/admin/products/pages/Products';
 import ProductsList from './modules/admin/products/pages/ProductsList';
+import React from 'react';
 import Signup from './modules/common/auth/pages/Signup';
 
 function App() {

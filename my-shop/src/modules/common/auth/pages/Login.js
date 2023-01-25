@@ -1,23 +1,10 @@
-import {
-    Avatar,
-    Box,
-    Button,
-    Checkbox,
-    FormControlLabel,
-    MenuItem,
-    Select,
-    TextField,
-    Typography,
-} from '@mui/material';
-import { Field, Form, Formik } from 'formik';
-import React, { useContext } from 'react';
+import { Avatar, Box, Button, Typography } from '@mui/material';
+import { Form, Formik } from 'formik';
 
-import { AuthContext } from '../providers/AuthProvider';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import MySelect from '../../form/MySelect';
-import MySubmitButton from '../../form/MySubmitButton';
 import MyTextField from '../../form/MyTextField';
 import { Navigate } from 'react-router-dom';
+import React from 'react';
 import api from '../../../../api';
 import loginValidationSchema from '../validation/loginValidationSchema';
 import useAuth from '../hooks/useAuth';

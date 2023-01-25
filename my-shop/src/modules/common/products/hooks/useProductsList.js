@@ -1,4 +1,3 @@
-import useCategories from '../../categories/hooks/useCategories';
 import useProducts from './useProducts';
 
 export default function useProductsList() {
