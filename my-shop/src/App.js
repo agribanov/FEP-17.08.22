@@ -15,7 +15,9 @@ import Landing from './modules/user/landing/pages/Landing';
 import Login from './modules/common/auth/pages/Login';
 import Logout from './modules/common/auth/pages/Logout';
 import NewCategory from './modules/admin/categories/pages/NewCategory';
-import Products from './modules/user/products/pages/Products';
+import ProductForm from './modules/admin/products/pages/ProductForm';
+import Products from './modules/admin/products/pages/Products';
+import ProductsList from './modules/admin/products/pages/ProductsList';
 import Signup from './modules/common/auth/pages/Signup';
 
 function App() {
@@ -46,7 +48,10 @@ function App() {
                             <Route path="new" element={<NewCategory />} />
                         </Route>
                     </Route>
-                    <Route path="products" element={<Products />} />
+                    <Route path="products" element={<Products />}>
+                        <Route path="" element={<ProductsList />} />
+                        <Route path=":id" element={<ProductForm />} />
+                    </Route>
                 </Route>
             </Routes>
         </Container>
